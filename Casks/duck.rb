@@ -19,7 +19,7 @@ cask "duck" do
   # or Homebrew downloads, and refuses to open what it cannot verify, so the
   # tag is removed here. This is the same thing the one-line installer avoids
   # by using curl, which macOS does not tag. The caveats below say so plainly.
-  postflight do
+  postflight_steps do
     system_command "/usr/bin/xattr",
                    args: ["-dr", "com.apple.quarantine", "#{appdir}/Duck.app"]
   end
