@@ -15,13 +15,15 @@ cask "duck" do
   app "Duck.app"
 
   # Duck is free and open source, and is not signed with an Apple developer
-  # certificate, which costs 99 dollars a year. macOS tags anything a browser
-  # or Homebrew downloads, and refuses to open what it cannot verify, so the
-  # tag is removed here. This is the same thing the one-line installer avoids
-  # by using curl, which macOS does not tag. The caveats below say so plainly.
+  # certificate, which costs 99 dollars a year. macOS tags anything Homebrew
+  # downloads and then refuses to open what it cannot verify, so the tag comes
+  # off here and the caveats below say so. The one-line installer on the site
+  # never picks the tag up in the first place: macOS only tags what a browser
+  # saved, and curl is not a browser.
   postflight_steps do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Duck.app"]
+    run "/usr/bin/xattr",
+        args:  ["-dr", "com.apple.quarantine", "Duck.app"],
+        chdir: "."
   end
 
   uninstall quit: "com.hdw.duck"
