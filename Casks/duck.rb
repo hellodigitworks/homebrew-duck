@@ -9,7 +9,7 @@ cask "duck" do
   desc "Hides the menu bar icons you are not using right now"
   homepage "https://duck.hellodigitworks.com/"
 
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
   depends_on arch: :arm64
 
   app "Duck.app"
