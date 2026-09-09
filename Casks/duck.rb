@@ -1,8 +1,8 @@
 # Duck, for Homebrew. Written by scripts/make-cask.py in the Duck repo.
 # Do not edit by hand: make a release, then run that script again.
 cask "duck" do
-  version "1.4.2"
-  sha256 "0074e28e33376cfdbb8738255adde5673420153ba322808db91f7790cb9a5d4c"
+  version "1.5.0"
+  sha256 "15fef1a6e817fcd5568f27df5cd571723c46c30d0ee6c63a26b09ea3b2dd440f"
 
   url "https://github.com/hellodigitworks/Duck/releases/download/v#{version}/Duck.zip"
   name "Duck"
